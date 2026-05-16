@@ -1,0 +1,233 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-exo2);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-exo2);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ─── Lizzu Brand Colors → Tailwind utilities ─────────────────────────────
+     Uso: bg-lizzu-black, text-lizzu-silver, border-lizzu-purple, etc.        */
+  --color-lizzu-black:        var(--lizzu-black);
+  --color-lizzu-dark:         var(--lizzu-dark);
+  --color-lizzu-deep:         var(--lizzu-deep);
+  --color-lizzu-purple:       var(--lizzu-purple);
+  --color-lizzu-violet:       var(--lizzu-violet);
+  --color-lizzu-glow:         var(--lizzu-glow);
+  --color-lizzu-chrome:       var(--lizzu-chrome);
+  --color-lizzu-silver:       var(--lizzu-silver);
+  --color-lizzu-silver-light: var(--lizzu-silver-light);
+  --color-lizzu-white:        var(--lizzu-white);
+}
+
+/* ─── Lizzu Brand Palette (fija, no cambia con el tema) ─────────────────────
+   lizzu-black        #060210   fondo más profundo / overlays
+   lizzu-dark         #0b0619   fondo principal dark
+   lizzu-deep         #160a30   fondo de cards dark
+   lizzu-purple       #3d1278   púrpura profundo (marca)
+   lizzu-violet       #5b21b6   violeta medio (primary / botones)
+   lizzu-glow         #7c3aed   violeta luminoso (hover / glows)
+   lizzu-chrome       #8e97aa   cromo oscuro (iconos)
+   lizzu-silver       #c4cad6   plata media (texto secundario dark)
+   lizzu-silver-light #e6e9f2   plata clara (texto cuerpo dark)
+   lizzu-white        #f5f7fc   casi blanco (títulos en dark)          */
+
+:root {
+  --lizzu-black:        oklch(0.05 0.025 295);
+  --lizzu-dark:         oklch(0.09 0.045 295);
+  --lizzu-deep:         oklch(0.14 0.07  294);
+  --lizzu-purple:       oklch(0.33 0.17  292);
+  --lizzu-violet:       oklch(0.44 0.22  292);
+  --lizzu-glow:         oklch(0.56 0.24  292);
+  --lizzu-chrome:       oklch(0.64 0.025 268);
+  --lizzu-silver:       oklch(0.82 0.02  268);
+  --lizzu-silver-light: oklch(0.92 0.01  268);
+  --lizzu-white:        oklch(0.97 0.005 268);
+
+  /* ── LIGHT MODE (default) ──────────────────────────────────────────────── */
+  --background:          oklch(1 0 0);
+  --foreground:          oklch(0.09 0.045 295);
+
+  --card:                oklch(0.98 0.006 275);
+  --card-foreground:     oklch(0.09 0.045 295);
+
+  --popover:             oklch(1 0 0);
+  --popover-foreground:  oklch(0.09 0.045 295);
+
+  --primary:             var(--lizzu-violet);
+  --primary-foreground:  oklch(1 0 0);
+
+  --secondary:           oklch(0.94 0.02  280);
+  --secondary-foreground: oklch(0.33 0.17 292);
+
+  --muted:               oklch(0.96 0.01  275);
+  --muted-foreground:    oklch(0.50 0.02  268);
+
+  --accent:              oklch(0.93 0.04  292);
+  --accent-foreground:   oklch(0.33 0.17  292);
+
+  --destructive:         oklch(0.58 0.22  27);
+
+  --border:              oklch(0.90 0.01  268);
+  --input:               oklch(0.90 0.01  268);
+  --ring:                var(--lizzu-glow);
+
+  --radius: 0.625rem;
+
+  --chart-1: var(--lizzu-violet);
+  --chart-2: var(--lizzu-glow);
+  --chart-3: var(--lizzu-purple);
+  --chart-4: var(--lizzu-chrome);
+  --chart-5: var(--lizzu-silver);
+
+  --sidebar:                    oklch(0.97 0.008 275);
+  --sidebar-foreground:         oklch(0.09 0.045 295);
+  --sidebar-primary:            var(--lizzu-violet);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent:             oklch(0.93 0.04  292);
+  --sidebar-accent-foreground:  oklch(0.33 0.17  292);
+  --sidebar-border:             oklch(0.90 0.01  268);
+  --sidebar-ring:               var(--lizzu-glow);
+}
+
+/* ── DARK MODE ───────────────────────────────────────────────────────────── */
+.dark {
+  --background:          var(--lizzu-dark);
+  --foreground:          var(--lizzu-white);
+
+  --card:                var(--lizzu-deep);
+  --card-foreground:     var(--lizzu-white);
+
+  --popover:             var(--lizzu-deep);
+  --popover-foreground:  var(--lizzu-white);
+
+  --primary:             var(--lizzu-violet);
+  --primary-foreground:  var(--lizzu-white);
+
+  --secondary:           var(--lizzu-deep);
+  --secondary-foreground: var(--lizzu-silver-light);
+
+  --muted:               oklch(0.12 0.05 295);
+  --muted-foreground:    var(--lizzu-silver);
+
+  --accent:              var(--lizzu-purple);
+  --accent-foreground:   var(--lizzu-white);
+
+  --destructive:         oklch(0.65 0.22 27);
+
+  --border:              oklch(1 0 0 / 10%);
+  --input:               oklch(1 0 0 / 12%);
+  --ring:                var(--lizzu-glow);
+
+  --chart-1: var(--lizzu-glow);
+  --chart-2: var(--lizzu-violet);
+  --chart-3: var(--lizzu-purple);
+  --chart-4: var(--lizzu-silver);
+  --chart-5: var(--lizzu-chrome);
+
+  --sidebar:                    var(--lizzu-black);
+  --sidebar-foreground:         var(--lizzu-white);
+  --sidebar-primary:            var(--lizzu-violet);
+  --sidebar-primary-foreground: var(--lizzu-white);
+  --sidebar-accent:             var(--lizzu-deep);
+  --sidebar-accent-foreground:  var(--lizzu-silver-light);
+  --sidebar-border:             oklch(1 0 0 / 8%);
+  --sidebar-ring:               var(--lizzu-glow);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+/* ─── Magic UI: View Transitions API (AnimatedThemeToggler) ─────────────── */
+[data-magicui-theme-vt="active"]::view-transition-old(root),
+[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+[data-magicui-theme-vt="active"]::view-transition-old(root) {
+  z-index: 1;
+}
+
+[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* ─── Magic UI: ShimmerButton keyframes ──────────────────────────────────── */
+@layer utilities {
+  .animate-shimmer-slide {
+    animation: shimmer-slide var(--speed, 3s) ease-in-out infinite alternate;
+  }
+  .animate-spin-around {
+    animation: spin-around calc(var(--speed, 3s) * 2) infinite linear;
+  }
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+@keyframes spin-around {
+  0%          { transform: translateZ(0) rotate(0deg); }
+  15%, 35%    { transform: translateZ(0) rotate(90deg); }
+  65%, 85%    { transform: translateZ(0) rotate(270deg); }
+  100%        { transform: translateZ(0) rotate(360deg); }
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
