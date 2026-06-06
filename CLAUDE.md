@@ -15,7 +15,7 @@ El objetivo principal del proyecto es:
 
 Keywords principales:
 
-- autos en Jujuy
+- autos 0km en Jujuy
 - autos usados Jujuy
 - agencia de autos Jujuy
 - concesionaria Jujuy
@@ -30,6 +30,7 @@ Keywords principales:
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
+- Magic UI
 - Vercel
 - React Server Components
 - Framer Motion (solo si realmente aporta valor)
@@ -375,6 +376,54 @@ Priorizar mobile first.
 Evitar saturación visual.
 
 Usar buena jerarquía visual.
+
+---
+
+# Responsive y Mobile First
+
+**El diseño base siempre es mobile. Los breakpoints escalan hacia arriba.**
+
+## Orden correcto de clases Tailwind
+
+```tsx
+// ✅ Correcto — base mobile, escala hacia arriba
+className="text-sm sm:text-base lg:text-lg"
+className="flex-col sm:flex-row"
+className="w-full sm:w-auto"
+className="py-16 sm:py-24 lg:py-32"
+
+// ❌ Incorrecto — base desktop, reduce hacia abajo
+className="text-lg sm:text-sm"
+className="flex-row sm:flex-col"
+```
+
+## Reglas estrictas
+
+- El valor base (sin prefijo) es siempre para mobile (`< 640px`)
+- Breakpoints en orden ascendente: base → `sm:` → `md:` → `lg:` → `xl:`
+- Los CTAs principales deben ser `w-full` en mobile y `w-auto` en `sm:`
+- Touch targets mínimo `h-11` (44px) — nunca menos en botones e interactivos
+- Usar `dvh` en lugar de `vh` para alturas: `min-h-[88dvh]` no `min-h-[88vh]`
+- No usar `hidden sm:block` para ocultar en mobile lo que puede adaptarse
+- Tipografía: escalar con pasos conservadores — `text-sm` → `text-base` → `text-lg`, no saltar de `text-xs` a `text-3xl`
+- Padding horizontal base: `px-4` (16px) en mobile, escalar con `sm:px-6 lg:px-8`
+- Padding vertical base: conservador en mobile (`py-14`/`py-16`), ampliar en `sm:`/`lg:`
+- Imágenes remotas: el atributo `sizes` debe reflejar los breakpoints reales
+
+## Breakpoints de referencia
+
+| Prefijo | Ancho mínimo | Dispositivo típico      |
+|---------|-------------|-------------------------|
+| (base)  | 0px         | iPhone SE, teléfonos    |
+| `sm:`   | 640px       | Teléfonos grandes       |
+| `md:`   | 768px       | Tablets                 |
+| `lg:`   | 1024px      | Laptops                 |
+| `xl:`   | 1280px      | Desktops                |
+
+## Viewport de referencia para testing
+
+Diseñar y testear primero en **375px × 812px** (iPhone 14 / SE).
+Luego verificar en 768px y 1280px.
 
 ---
 
