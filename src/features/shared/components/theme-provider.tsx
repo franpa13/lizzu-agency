@@ -1,16 +1,20 @@
 'use client'
 
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
+import { useEffect } from 'react'
+import { TooltipProvider } from '@/features/shared/components/ui/tooltip'
+import { SidebarProvider } from '@/features/shared/context/sidebar'
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const stored = localStorage.getItem('theme')
+    document.documentElement.classList.toggle('dark', stored === 'dark')
+  }, [])
+
   return (
-    <NextThemesProvider
-      attribute='class'
-      defaultTheme='light'
-      enableSystem={false}
-      disableTransitionOnChange={false}
-    >
-      {children}
-    </NextThemesProvider>
+    <SidebarProvider>
+      <TooltipProvider>
+        {children}
+      </TooltipProvider>
+    </SidebarProvider>
   )
 }

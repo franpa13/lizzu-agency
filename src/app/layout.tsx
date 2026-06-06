@@ -3,6 +3,7 @@ import { Exo_2 } from 'next/font/google'
 import { ThemeProvider } from '@/features/shared/components/theme-provider'
 import { Header } from '@/features/shared/components/header'
 import { Footer } from '@/features/shared/components/footer'
+import { WhatsAppFab } from '@/features/shared/components/whatsapp-fab'
 import { siteConfig } from '@/config/site'
 import './globals.css'
 
@@ -34,12 +35,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='es' className={`${exo2.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang='es' data-scroll-behavior="smooth" className={`${exo2.variable} h-full antialiased`} suppressHydrationWarning>
       <body className='flex min-h-full flex-col'>
         <ThemeProvider>
           <Header />
           <main className='flex-1'>{children}</main>
           <Footer />
+          <WhatsAppFab />
         </ThemeProvider>
       </body>
     </html>

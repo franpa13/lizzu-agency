@@ -6,7 +6,7 @@ export function buildMetadata(overrides?: Partial<Metadata>): Metadata {
   return {
     title: seoConfig.defaultTitle,
     description: seoConfig.defaultDescription,
-    keywords: seoConfig.keywords,
+    keywords: [...seoConfig.keywords],
     authors: [{ name: siteConfig.fullName }],
     creator: siteConfig.fullName,
     metadataBase: new URL(siteConfig.url),

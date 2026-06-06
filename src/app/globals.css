@@ -59,24 +59,44 @@
   --color-lizzu-silver:       var(--lizzu-silver);
   --color-lizzu-silver-light: var(--lizzu-silver-light);
   --color-lizzu-white:        var(--lizzu-white);
-}
+  --color-lizzu-navy:         var(--lizzu-navy);
+  --color-lizzu-blue:         var(--lizzu-blue);
+  --color-lizzu-blue-glow:    var(--lizzu-blue-glow);
+  --color-lizzu-steel:        var(--lizzu-steel);
+  --animate-gradient: gradient 8s linear infinite;
+  @keyframes gradient {
+  to {
+    background-position: var(--bg-size, 300%) 0;
+    }
+  }
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite
+;
+  @keyframes blink-cursor {
+  0%, 49% {
+    opacity: 1;}
+  50%, 100% {
+    opacity: 0;}}}
 
 /* ─── Lizzu Brand Palette (fija, no cambia con el tema) ─────────────────────
    lizzu-black        #060210   fondo más profundo / overlays
    lizzu-dark         #0b0619   fondo principal dark
    lizzu-deep         #160a30   fondo de cards dark
-   lizzu-purple       #3d1278   púrpura profundo (marca)
-   lizzu-violet       #5b21b6   violeta medio (primary / botones)
-   lizzu-glow         #7c3aed   violeta luminoso (hover / glows)
+   lizzu-purple       #3d1278   púrpura profundo (secundario)
+   lizzu-violet       #5b21b6   violeta medio (secundario / hover)
+   lizzu-glow         #7c3aed   violeta luminoso (secundario glow)
    lizzu-chrome       #8e97aa   cromo oscuro (iconos)
    lizzu-silver       #c4cad6   plata media (texto secundario dark)
    lizzu-silver-light #e6e9f2   plata clara (texto cuerpo dark)
-   lizzu-white        #f5f7fc   casi blanco (títulos en dark)          */
+   lizzu-white        #f5f7fc   casi blanco (títulos en dark)
+   lizzu-navy         #0e1f4a   azul marino profundo del logo (primary bg)
+   lizzu-blue         #1a42a8   azul medio (primary action)
+   lizzu-blue-glow    #2d65d8   azul brillante (active / hover / glow)
+   lizzu-steel        #7a8ea8   gris acero del cromo del logo              */
 
 :root {
-  --lizzu-black:        oklch(0.05 0.025 295);
-  --lizzu-dark:         oklch(0.09 0.045 295);
-  --lizzu-deep:         oklch(0.14 0.07  294);
+  --lizzu-black:        oklch(0.07 0.006 250);
+  --lizzu-dark:         oklch(0.11 0.008 250);
+  --lizzu-deep:         oklch(0.15 0.010 252);
   --lizzu-purple:       oklch(0.33 0.17  292);
   --lizzu-violet:       oklch(0.44 0.22  292);
   --lizzu-glow:         oklch(0.56 0.24  292);
@@ -84,6 +104,10 @@
   --lizzu-silver:       oklch(0.82 0.02  268);
   --lizzu-silver-light: oklch(0.92 0.01  268);
   --lizzu-white:        oklch(0.97 0.005 268);
+  --lizzu-navy:         oklch(0.19 0.10  263);
+  --lizzu-blue:         oklch(0.42 0.16  263);
+  --lizzu-blue-glow:    oklch(0.54 0.18  263);
+  --lizzu-steel:        oklch(0.60 0.04  252);
 
   /* ── LIGHT MODE (default) ──────────────────────────────────────────────── */
   --background:          oklch(1 0 0);
@@ -95,40 +119,40 @@
   --popover:             oklch(1 0 0);
   --popover-foreground:  oklch(0.09 0.045 295);
 
-  --primary:             var(--lizzu-violet);
+  --primary:             var(--lizzu-blue);
   --primary-foreground:  oklch(1 0 0);
 
-  --secondary:           oklch(0.94 0.02  280);
-  --secondary-foreground: oklch(0.33 0.17 292);
+  --secondary:           oklch(0.94 0.02  263);
+  --secondary-foreground: oklch(0.20 0.10  263);
 
   --muted:               oklch(0.96 0.01  275);
   --muted-foreground:    oklch(0.50 0.02  268);
 
-  --accent:              oklch(0.93 0.04  292);
-  --accent-foreground:   oklch(0.33 0.17  292);
+  --accent:              oklch(0.93 0.03  263);
+  --accent-foreground:   oklch(0.20 0.10  263);
 
   --destructive:         oklch(0.58 0.22  27);
 
   --border:              oklch(0.90 0.01  268);
   --input:               oklch(0.90 0.01  268);
-  --ring:                var(--lizzu-glow);
+  --ring:                var(--lizzu-blue-glow);
 
   --radius: 0.625rem;
 
-  --chart-1: var(--lizzu-violet);
-  --chart-2: var(--lizzu-glow);
-  --chart-3: var(--lizzu-purple);
-  --chart-4: var(--lizzu-chrome);
+  --chart-1: var(--lizzu-blue);
+  --chart-2: var(--lizzu-blue-glow);
+  --chart-3: var(--lizzu-navy);
+  --chart-4: var(--lizzu-steel);
   --chart-5: var(--lizzu-silver);
 
   --sidebar:                    oklch(0.97 0.008 275);
   --sidebar-foreground:         oklch(0.09 0.045 295);
-  --sidebar-primary:            var(--lizzu-violet);
+  --sidebar-primary:            var(--lizzu-blue);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent:             oklch(0.93 0.04  292);
-  --sidebar-accent-foreground:  oklch(0.33 0.17  292);
+  --sidebar-accent:             oklch(0.93 0.03  263);
+  --sidebar-accent-foreground:  oklch(0.20 0.10  263);
   --sidebar-border:             oklch(0.90 0.01  268);
-  --sidebar-ring:               var(--lizzu-glow);
+  --sidebar-ring:               var(--lizzu-blue-glow);
 }
 
 /* ── DARK MODE ───────────────────────────────────────────────────────────── */
@@ -142,38 +166,38 @@
   --popover:             var(--lizzu-deep);
   --popover-foreground:  var(--lizzu-white);
 
-  --primary:             var(--lizzu-violet);
+  --primary:             var(--lizzu-blue-glow);
   --primary-foreground:  var(--lizzu-white);
 
   --secondary:           var(--lizzu-deep);
   --secondary-foreground: var(--lizzu-silver-light);
 
-  --muted:               oklch(0.12 0.05 295);
+  --muted:               oklch(0.16 0.008 252);
   --muted-foreground:    var(--lizzu-silver);
 
-  --accent:              var(--lizzu-purple);
+  --accent:              var(--lizzu-navy);
   --accent-foreground:   var(--lizzu-white);
 
   --destructive:         oklch(0.65 0.22 27);
 
   --border:              oklch(1 0 0 / 10%);
   --input:               oklch(1 0 0 / 12%);
-  --ring:                var(--lizzu-glow);
+  --ring:                var(--lizzu-blue-glow);
 
-  --chart-1: var(--lizzu-glow);
-  --chart-2: var(--lizzu-violet);
-  --chart-3: var(--lizzu-purple);
+  --chart-1: var(--lizzu-blue-glow);
+  --chart-2: var(--lizzu-blue);
+  --chart-3: var(--lizzu-navy);
   --chart-4: var(--lizzu-silver);
-  --chart-5: var(--lizzu-chrome);
+  --chart-5: var(--lizzu-steel);
 
   --sidebar:                    var(--lizzu-black);
   --sidebar-foreground:         var(--lizzu-white);
-  --sidebar-primary:            var(--lizzu-violet);
+  --sidebar-primary:            var(--lizzu-blue-glow);
   --sidebar-primary-foreground: var(--lizzu-white);
-  --sidebar-accent:             var(--lizzu-deep);
+  --sidebar-accent:             var(--lizzu-navy);
   --sidebar-accent-foreground:  var(--lizzu-silver-light);
   --sidebar-border:             oklch(1 0 0 / 8%);
-  --sidebar-ring:               var(--lizzu-glow);
+  --sidebar-ring:               var(--lizzu-blue-glow);
 }
 
 @layer base {
@@ -187,6 +211,11 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+}
+
+/* ─── Hero carousel: make the embla overflow wrapper fill its container ──── */
+.hero-carousel [data-slot="carousel-content"] {
+  height: 100%;
 }
 
 /* ─── Magic UI: View Transitions API (AnimatedThemeToggler) ─────────────── */
@@ -204,20 +233,55 @@
   z-index: 9999;
 }
 
-/* ─── Magic UI: ShimmerButton keyframes ──────────────────────────────────── */
+/* ─── Magic UI: BorderBeam ───────────────────────────────────────────────── */
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-beam {
+  to { --beam-angle: 360deg; }
+}
+
+/* ─── Magic UI: ShimmerButton + Marquee keyframes ────────────────────────── */
 @layer utilities {
+  .animate-border-beam {
+    animation: border-beam var(--beam-duration, 8s) linear infinite;
+  }
   .animate-shimmer-slide {
     animation: shimmer-slide var(--speed, 3s) ease-in-out infinite alternate;
   }
   .animate-spin-around {
     animation: spin-around calc(var(--speed, 3s) * 2) infinite linear;
   }
+  .animate-marquee {
+    animation: marquee var(--duration, 40s) linear infinite;
+  }
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration, 40s) linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to   { transform: translateY(calc(-100% - var(--gap))); }
 }
 
 @keyframes shimmer-slide {
   to {
     transform: translate(calc(100cqw - 100%), 0);
   }
+}
+
+@keyframes card-shimmer {
+  0%        { transform: translateX(-150%) skewX(-20deg); }
+  25%, 100% { transform: translateX(300%)  skewX(-20deg); }
 }
 
 @keyframes spin-around {

@@ -190,8 +190,8 @@ export function ThemeToggle({
       className={cn(
         'flex size-9 cursor-pointer items-center justify-center rounded-md border transition-colors duration-200',
         isDark
-          ? 'border-white/10 text-lizzu-silver hover:border-lizzu-violet hover:text-lizzu-glow'
-          : 'border-border text-muted-foreground hover:border-lizzu-violet hover:text-lizzu-violet',
+          ? 'border-white/10 text-lizzu-silver hover:border-lizzu-blue hover:text-lizzu-blue-glow'
+          : 'border-border text-muted-foreground hover:border-lizzu-blue hover:text-lizzu-blue',
         className,
       )}
       {...props}
