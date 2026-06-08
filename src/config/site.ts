@@ -11,16 +11,17 @@ export const businessHours: Record<number, { open: string; close: string } | nul
 
 export const siteConfig = {
   name: "Lizzu",
-  fullName: "Lizzu Agencia de Autos",
-  url: "https://lizzu.com.ar",
+  fullName: "Lizzu Multimarcas",
+  url: "https://lizzu.vercel.app", // TODO: cambiar a https://lizzu.com.ar cuando el dominio esté activo
   locale: "es_AR",
-  phone: "",
-  whatsapp: "",
+  phone: "+5493885219798",
+  whatsapp: "5493885219798",
   email: "",
   address: {
-    street: "",
+    street: "Almirante Brown N°10",
     city: "San Salvador de Jujuy",
     province: "Jujuy",
+    postalCode: "4600",
     country: "Argentina",
     countryCode: "AR",
   },

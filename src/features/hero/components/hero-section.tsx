@@ -119,6 +119,16 @@ export function HeroSection() {
         </Carousel>
       </div>
 
+      {/* ── H1 SEO overlay ──────────────────────────────────────────────── */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 bg-linear-to-t from-black/55 to-transparent px-4 pb-5 sm:px-8 sm:pb-7">
+        <h1 className="text-sm font-bold text-white sm:text-lg lg:text-xl">
+          Autos 0km y Usados en Jujuy
+        </h1>
+        <p className="mt-0.5 text-xs text-white/75 sm:text-sm">
+          Lizzu Multimarcas — Tu agencia de confianza en San Salvador de Jujuy
+        </p>
+      </div>
+
       {/* ── Dots de navegación ───────────────────────────────────────────── */}
       <div
         className="hidden md:flex items-center absolute bottom-0 right-1/2 justify-center gap-2 py-2.5"
