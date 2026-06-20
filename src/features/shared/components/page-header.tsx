@@ -37,7 +37,7 @@ export function PageHeader({
     <section
       className={cn(
         'relative overflow-hidden shadow-lg',
-        'bg-linear-to-br from-lizzu-purple to-lizzu-blue',
+        'bg-lizzu-navy',
         className,
       )}
     >
@@ -88,7 +88,7 @@ export function PageHeader({
       )}
 
       {/* ── Content ─────────────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto max-w-4xl px-4 pb-10 pt-6 sm:px-6 sm:pb-14 sm:pt-8 lg:px-8">
+      <div className="relative z-10 mx-auto  px-4 pb-10 pt-6 sm:px-6 sm:pb-14 sm:pt-8 lg:px-8">
 
         {/* Breadcrumb */}
         <nav aria-label="Ubicación de página">

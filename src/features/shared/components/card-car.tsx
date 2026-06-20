@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Gauge, MapPin } from 'lucide-react'
 import { CarCTAButton } from '@/features/shared/components/car-cta-button'
 import { cn } from '@/lib/utils'
@@ -15,6 +16,7 @@ export interface CarCardData {
   price: number
   km: number
   badge?: CarBadge
+  href?: string
 }
 
 interface CardCarProps extends CarCardData {
@@ -43,7 +45,7 @@ function formatKm(n: number) {
 }
 
 export function CardCar({
-  image, alt, brand, model, year, price, km, badge, className, priority = false,
+  image, alt, brand, model, year, price, km, badge, href, className, priority = false,
 }: CardCarProps) {
   const badgeInfo = badge ? BADGE_MAP[badge] : null
 
@@ -57,20 +59,22 @@ export function CardCar({
       )}
     >
       {/* ── Image ─────────────────────────────────────────────── */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
-        <Image
-          src={image}
-          alt={alt}
-          fill
-          priority={priority}
-          sizes="(max-width: 640px) 88vw, (max-width: 1024px) 46vw, 32vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+      <Link href={href ?? '#'} tabIndex={href ? 0 : -1} aria-hidden={!href} className="relative aspect-16/10 w-full overflow-hidden block bg-muted/40 dark:bg-lizzu-deep/50">
+        <div className="absolute inset-4 sm:inset-16">
+          <Image
+            src={image}
+            alt={alt}
+            fill
+            priority={priority}
+            sizes="(max-width: 440px) 88vw, (max-width: 1024px) 46vw, 32vw"
+            className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
 
         {/* Bottom gradient */}
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-black/50 to-transparent"
         />
 
         {/* Badge */}
@@ -89,7 +93,7 @@ export function CardCar({
         <span className="absolute bottom-2.5 right-3 rounded-full bg-black/55 px-2.5 py-0.5 text-[11px] font-semibold text-white backdrop-blur-sm">
           {year}
         </span>
-      </div>
+      </Link>
 
       {/* ── Content ───────────────────────────────────────────── */}
       <div className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
@@ -114,7 +118,7 @@ export function CardCar({
         {/* Price */}
         <div>
           <p className="text-xl font-extrabold tracking-tight text-lizzu-blue-glow sm:text-2xl">
-            {formatPrice(price)}
+            {price > 0 ? formatPrice(price) : 'Consultar precio'}
           </p>
           <p className="mt-0.5 text-[10px] font-medium text-muted-foreground">
             Financiación disponible

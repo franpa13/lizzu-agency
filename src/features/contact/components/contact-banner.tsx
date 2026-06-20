@@ -10,9 +10,9 @@ const breadcrumb = [
 ]
 
 const pillars = [
-  { Icon: MessageCircle, label: 'WhatsApp: +54 9 388 521-9798' },
+  { Icon: MessageCircle, label: 'WhatsApp: +54 9 3884 34-4543' },
   { Icon: MapPin,        label: 'Almirante Brown N°10, Jujuy'  },
-  { Icon: Clock,         label: 'Lun–Vie 9–18 h · Sáb 9–13 h' },
+  { Icon: Clock,         label: 'Lun–Vie 9–21 h · Sáb 9–21 h*' },
   { Icon: AtSign,        label: '@lizzu_multimarcas'            },
 ] as const
 
@@ -22,7 +22,37 @@ export function ContactBanner() {
       className="relative w-full overflow-hidden"
       aria-label="Contacto Lizzu Multimarcas"
     >
-      <div className="flex flex-col lg:h-96 lg:flex-row bg-linear-to-b from-lizzu-navy to-lizzu-blue">
+      <div className="flex flex-col lg:h-96 lg:flex-row bg-lizzu-navy">
+
+        {/* Dot texture */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+
+        {/* ── Breadcrumb — siempre en la misma posición ─────────────────────── */}
+        <nav aria-label="Ubicación de página" className="absolute left-6 top-6 z-10 sm:left-10">
+          <ol className="flex flex-wrap items-center gap-1.5 text-[11px] text-white/40">
+            {breadcrumb.map((crumb, i) => (
+              <li key={crumb.href} className="flex items-center gap-1.5">
+                {i > 0 && (
+                  <ChevronRight className="size-3 shrink-0 text-white/25" aria-hidden="true" />
+                )}
+                {i < breadcrumb.length - 1 ? (
+                  <Link href={crumb.href} className="transition-colors hover:text-white/70">
+                    {crumb.label}
+                  </Link>
+                ) : (
+                  <span className="font-semibold text-white/70">{crumb.label}</span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
 
         {/* ── LEFT: copy ────────────────────────────────────────────────────── */}
         <div className="relative flex flex-col justify-center px-6 py-8 sm:px-10 lg:h-full lg:w-1/2 lg:py-0">
@@ -32,30 +62,8 @@ export function ContactBanner() {
             aria-hidden="true"
           />
 
-          {/* breadcrumb */}
-          <BlurFade delay={0} direction="up" inView>
-            <nav aria-label="Ubicación de página">
-              <ol className="mb-6 flex flex-wrap items-center gap-1.5 text-[11px] text-white/40">
-                {breadcrumb.map((crumb, i) => (
-                  <li key={crumb.href} className="flex items-center gap-1.5">
-                    {i > 0 && (
-                      <ChevronRight className="size-3 shrink-0 text-white/25" aria-hidden="true" />
-                    )}
-                    {i < breadcrumb.length - 1 ? (
-                      <Link href={crumb.href} className="transition-colors hover:text-white/70">
-                        {crumb.label}
-                      </Link>
-                    ) : (
-                      <span className="font-semibold text-white/70">{crumb.label}</span>
-                    )}
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          </BlurFade>
-
           <BlurFade delay={0.08} direction="up" inView>
-            <h2 className="text-2xl font-black uppercase leading-tight text-lizzu-white sm:text-3xl lg:text-[2rem]">
+            <h2 className="text-lg md:text-2xl font-black uppercase leading-tight text-lizzu-white ">
               Estamos para{' '}
               <span className="text-lizzu-blue-glow">ayudarte</span>
             </h2>

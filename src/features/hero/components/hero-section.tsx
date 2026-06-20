@@ -39,33 +39,18 @@ export function HeroSection() {
         <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
           <CarouselContent className="ml-0">
             {HERO_SLIDES.map((slide, i) => (
-              <CarouselItem key={i} className="relative aspect-9/16 sm:aspect-1983/793 pl-0">
+              <CarouselItem key={i} className="relative aspect-video sm:aspect-1983/793 pl-0">
 
                 {slide.type === 'image' ? (
-                  <>
-                    {/* Mobile image */}
-                    {slide.mobileSrc && (
-                      <Image
-                        src={slide.mobileSrc}
-                        alt={slide.alt}
-                        fill
-                        className="object-cover object-center sm:hidden"
-                        priority={i === 0}
-                        quality={i === 0 ? 100 : 85}
-                        sizes="100vw"
-                      />
-                    )}
-                    {/* Desktop image */}
-                    <Image
-                      src={slide.src}
-                      alt={slide.alt}
-                      fill
-                      className={`object-cover object-center ${slide.mobileSrc ? 'hidden sm:block' : ''}`}
-                      priority={i === 0}
-                      quality={i === 0 ? 100 : 85}
-                      sizes="(max-width: 1983px) 100vw, 1983px"
-                    />
-                  </>
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    className="object-cover object-center"
+                    priority={i === 0}
+                    quality={i === 0 ? 100 : 85}
+                    sizes="(max-width: 1983px) 100vw, 1983px"
+                  />
                 ) : (
                   /* ── Feature slide — banner estilizado con auto ─────── */
                   <div className="absolute inset-0 flex items-center overflow-hidden bg-linear-to-r from-lizzu-black via-lizzu-navy to-lizzu-purple/60">
@@ -119,15 +104,6 @@ export function HeroSection() {
         </Carousel>
       </div>
 
-      {/* ── H1 SEO overlay ──────────────────────────────────────────────── */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 bg-linear-to-t from-black/55 to-transparent px-4 pb-5 sm:px-8 sm:pb-7">
-        <h1 className="text-sm font-bold text-white sm:text-lg lg:text-xl">
-          Autos 0km y Usados en Jujuy
-        </h1>
-        <p className="mt-0.5 text-xs text-white/75 sm:text-sm">
-          Lizzu Multimarcas — Tu agencia de confianza en San Salvador de Jujuy
-        </p>
-      </div>
 
       {/* ── Dots de navegación ───────────────────────────────────────────── */}
       <div

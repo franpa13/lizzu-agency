@@ -28,7 +28,7 @@ export function WhyUsSection() {
         </BlurFade>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 ">
           {WHY_US_FEATURES.map((feature, i) => (
             <BlurFade key={feature.title} inView delay={i * 0.1} direction="up">
               <div className="group relative h-full overflow-hidden rounded-2xl border border-border/60 bg-card p-6 transition-shadow duration-300 hover:shadow-lg dark:hover:shadow-black/30">

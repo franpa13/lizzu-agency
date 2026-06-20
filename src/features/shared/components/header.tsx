@@ -23,7 +23,7 @@ export function Header() {
       return pathname === '/' && activeHash === '#' + href.split('#')[1]
     }
     if (href === '/') return pathname === '/' && activeHash === '#hero'
-    return pathname === href
+    return pathname === href || pathname.startsWith(href + '/')
   }
 
   /* lock body scroll while sidebar is open */

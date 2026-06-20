@@ -23,9 +23,5 @@ export const WHY_US_FEATURES: WhyUsFeature[] = [
     title: 'Atención personalizada',
     description: 'Asesoramiento sin presión. Nuestro equipo te ayuda a encontrar el auto ideal.',
   },
-  {
-    icon: Wrench,
-    title: 'Servicio técnico',
-    description: 'Taller propio para mantenimiento, revisión técnica y reparaciones.',
-  },
+
 ]

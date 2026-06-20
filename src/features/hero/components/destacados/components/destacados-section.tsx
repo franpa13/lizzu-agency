@@ -87,7 +87,7 @@ export function DestacadosSection() {
             {FEATURED_CARS.map((car, i) => (
               <CarouselItem
                 key={car.id}
-                className="basis-[100%] pl-4 sm:basis-[50%] lg:basis-[25%]"
+                className="basis-full pl-4 sm:basis-[50%] lg:basis-[25%]"
               >
                 <BlurFade inView delay={i * 0.06} direction="up">
                   <CardCar {...car} priority={i === 0} />
