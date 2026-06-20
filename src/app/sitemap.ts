@@ -1,7 +1,15 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
+import { INVENTORY } from "@/features/catalog/data/inventory";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const carPages: MetadataRoute.Sitemap = INVENTORY.map((car) => ({
+    url: `${siteConfig.url}/catalogo/${car.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
   return [
     {
       url: siteConfig.url,
@@ -27,5 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    ...carPages,
   ];
 }

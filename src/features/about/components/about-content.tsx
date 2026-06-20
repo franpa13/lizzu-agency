@@ -36,7 +36,7 @@ export function AboutContent() {
         <div className=" gap-10 flex flex-col md:flex-row justify-between items-center lg:gap-16">
 
           {/* ── Main copy ──────────────────────────────────────────────────── */}
-          <BlurFade delay={0} direction="up" inView>
+          <BlurFade delay={0} direction="up" className='w-full md:w-1/2' inView>
             <div className="flex flex-col gap-6">
 
               <div className="flex items-center gap-3">
@@ -79,7 +79,7 @@ export function AboutContent() {
           </BlurFade>
 
           {/* ── Values grid ──────────────────────────────────────────────── */}
-          <BlurFade delay={0.15} direction="up" inView>
+          <BlurFade delay={0.15} direction="up"  className='w-full md:w-1/2' inView>
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2" role="list">
               {VALUES.map(({ icon: Icon, title, description }, i) => (
                 <BlurFade key={title} delay={0.2 + i * 0.08} direction="up" inView>

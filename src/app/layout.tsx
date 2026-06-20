@@ -22,10 +22,24 @@ export const metadata: Metadata = {
   description:
     'Encontrá autos usados y vehículos seleccionados en Jujuy. Consultá por WhatsApp con Lizzu Multimarcas.',
   metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.fullName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale,
     siteName: siteConfig.fullName,
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
 }
 

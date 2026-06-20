@@ -1,16 +1,9 @@
-export type BadgeFilter = 'todos' | '0km' | 'usado'
-export type SortOption  = 'reciente' | 'precio-asc' | 'precio-desc'
+export type SortOption = 'reciente' | 'a-z'
 
 export interface CatalogFilters {
-  badge:    BadgeFilter
-  priceMin: number | null
-  priceMax: number | null
-  brands:   string[]
+  brands: string[]
 }
 
 export const DEFAULT_FILTERS: CatalogFilters = {
-  badge:    'todos',
-  priceMin: null,
-  priceMax: null,
-  brands:   [],
+  brands: [],
 }

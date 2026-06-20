@@ -39,7 +39,7 @@ const jsonLd = {
       description:
         'Agencia de autos usados en San Salvador de Jujuy con financiación, asesoramiento y servicio integral.',
       url: 'https://lizzu.com.ar',
-      telephone: '+5493885219798',
+      telephone: '+5493884344543',
       email: '',
       address: {
         '@type': 'PostalAddress',
@@ -59,13 +59,13 @@ const jsonLd = {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
           opens: '09:00',
-          closes: '18:00',
+          closes: '21:00',
         },
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: 'Saturday',
           opens: '09:00',
-          closes: '13:00',
+          closes: '21:00',
         },
       ],
       sameAs: [
@@ -83,7 +83,7 @@ const jsonLd = {
       name: 'Lizzu Multimarcas',
       image: 'https://lizzu.com.ar/images/logo-lizzu2.png',
       url: 'https://lizzu.com.ar',
-      telephone: '+5493885219798',
+      telephone: '+5493884344543',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Almirante Brown N°10',

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { SlidersHorizontal } from 'lucide-react'
 import { CatalogCard } from './catalog-card'
 import { CatalogSidebar } from './catalog-sidebar'
-import { CATALOG_CARS } from '../data/cars'
+import { getOrderedInventory } from '../data/inventory'
 import { DEFAULT_FILTERS } from '../types/filters'
 import type { CatalogFilters, SortOption } from '../types/filters'
 import { cn } from '@/lib/utils'
@@ -23,29 +23,24 @@ export function CatalogGrid() {
   const [search, setSearch]               = useState('')
 
   /* ── Apply filters ─────────────────────────────────────────────────── */
-  let cars = CATALOG_CARS.filter((car) => {
+  const inventory = getOrderedInventory()
+  let cars = inventory.filter((car) => {
     if (search.trim()) {
       const q = search.toLowerCase()
       if (!`${car.brand} ${car.model}`.toLowerCase().includes(q)) return false
     }
-    if (filters.badge === '0km'   && car.badge !== '0km') return false
-    if (filters.badge === 'usado' && car.badge === '0km') return false
-    if (filters.priceMin !== null && car.price < filters.priceMin) return false
-    if (filters.priceMax !== null && car.price > filters.priceMax) return false
     if (filters.brands.length > 0 && !filters.brands.includes(car.brand)) return false
     return true
   })
 
   /* ── Apply sort ────────────────────────────────────────────────────── */
-  if (sort === 'precio-asc')  cars = [...cars].sort((a, b) => a.price - b.price)
-  if (sort === 'precio-desc') cars = [...cars].sort((a, b) => b.price - a.price)
+  if (sort === 'a-z') {
+    cars = [...cars].sort((a, b) =>
+      `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`, 'es'),
+    )
+  }
 
-  const hasFilters =
-    search.trim() !== '' ||
-    filters.badge !== 'todos' ||
-    filters.priceMin !== null ||
-    filters.priceMax !== null ||
-    filters.brands.length > 0
+  const hasFilters = search.trim() !== '' || filters.brands.length > 0
 
   function clearAll() {
     setFilters(DEFAULT_FILTERS)
@@ -105,9 +100,9 @@ export function CatalogGrid() {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6 xl:grid-cols-4">
             {cars.map((car, i) => (
-              <CatalogCard key={car.id} {...car} priority={i < 3} />
+              <CatalogCard key={car.id} car={car} priority={i < 2} />
             ))}
           </div>
 

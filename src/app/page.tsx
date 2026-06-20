@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     'vehículos usados Jujuy',
     'autos San Salvador de Jujuy',
     'Lizzu Multimarcas',
+    'Lizzu autos',
+    'Lizzu Jujuy',
     'financiación autos Jujuy',
+    'auto Jujuy',
   ],
   alternates: {
     canonical: 'https://lizzu.com.ar',
@@ -33,6 +36,12 @@ export const metadata: Metadata = {
     siteName: 'Lizzu Multimarcas',
     locale: 'es_AR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Autos 0km y Usados en Jujuy | Lizzu Multimarcas',
+    description:
+      'Encontrá tu próximo vehículo en Jujuy. Autos 0km y usados de todas las marcas con financiación. Consultá por WhatsApp.',
   },
 }
 

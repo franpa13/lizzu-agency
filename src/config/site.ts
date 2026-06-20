@@ -1,12 +1,12 @@
 // day index: 0 = domingo, 1 = lunes, ..., 6 = sábado  |  null = cerrado
 export const businessHours: Record<number, { open: string; close: string } | null> = {
   0: null,
-  1: { open: '09:00', close: '18:00' },
-  2: { open: '09:00', close: '18:00' },
-  3: { open: '09:00', close: '18:00' },
-  4: { open: '09:00', close: '18:00' },
-  5: { open: '09:00', close: '18:00' },
-  6: { open: '09:00', close: '13:00' },
+  1: { open: '09:00', close: '21:00' },
+  2: { open: '09:00', close: '21:00' },
+  3: { open: '09:00', close: '21:00' },
+  4: { open: '09:00', close: '21:00' },
+  5: { open: '09:00', close: '21:00' },
+  6: { open: '09:00', close: '21:00' },
 }
 
 export const siteConfig = {
@@ -14,8 +14,8 @@ export const siteConfig = {
   fullName: "Lizzu Multimarcas",
   url: "https://lizzu.vercel.app", // TODO: cambiar a https://lizzu.com.ar cuando el dominio esté activo
   locale: "es_AR",
-  phone: "+5493885219798",
-  whatsapp: "5493885219798",
+  phone: "+5493884344543",
+  whatsapp: "5493884344543",
   email: "",
   address: {
     street: "Almirante Brown N°10",
