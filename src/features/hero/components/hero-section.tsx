@@ -39,18 +39,32 @@ export function HeroSection() {
         <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
           <CarouselContent className="ml-0">
             {HERO_SLIDES.map((slide, i) => (
-              <CarouselItem key={i} className="relative aspect-video sm:aspect-1983/793 pl-0">
+              <CarouselItem key={i} className="relative sm:aspect-1983/793 pl-0">
 
                 {slide.type === 'image' ? (
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    className="object-cover object-center"
-                    priority={i === 0}
-                    quality={i === 0 ? 100 : 85}
-                    sizes="(max-width: 1983px) 100vw, 1983px"
-                  />
+                  <>
+                    {slide.mobileSrc && (
+                      <Image
+                        src={slide.mobileSrc}
+                        alt={slide.alt}
+                        width={941}
+                        height={1672}
+                        className="w-full h-auto sm:hidden"
+                        priority={i === 0}
+                        quality={i === 0 ? 100 : 85}
+                        sizes="100vw"
+                      />
+                    )}
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      className={`object-cover object-center ${slide.mobileSrc ? 'hidden sm:block' : ''}`}
+                      priority={i === 0}
+                      quality={i === 0 ? 100 : 85}
+                      sizes="(max-width: 1983px) 100vw, 1983px"
+                    />
+                  </>
                 ) : (
                   /* ── Feature slide — banner estilizado con auto ─────── */
                   <div className="absolute inset-0 flex items-center overflow-hidden bg-linear-to-r from-lizzu-black via-lizzu-navy to-lizzu-purple/60">

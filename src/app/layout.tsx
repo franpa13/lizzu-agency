@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/features/shared/components/theme-provider'
 import { Header } from '@/features/shared/components/header'
 import { Footer } from '@/features/shared/components/footer'
 import { WhatsAppFab } from '@/features/shared/components/whatsapp-fab'
+import { Toaster } from '@/features/shared/components/ui/sonner'
 import { siteConfig } from '@/config/site'
 import './globals.css'
 
@@ -59,6 +60,7 @@ export default function RootLayout({
           <main className='flex-1'>{children}</main>
           <Footer />
           <WhatsAppFab />
+          <Toaster position="bottom-left" richColors={false} toastOptions={{ classNames: { toast: 'bg-transparent! border-none! shadow-none! p-0!' } }} />
         </ThemeProvider>
       </body>
     </html>
