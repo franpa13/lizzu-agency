@@ -84,7 +84,7 @@ export function AboutBanner() {
         </nav>
 
         {/* ── LEFT: copy ────────────────────────────────────────────────────── */}
-        <div className="relative flex flex-col justify-center px-6 py-6 sm:px-10 lg:h-full lg:w-[44%] lg:py-0">
+        <div className="relative flex flex-col justify-center px-6 pt-16 pb-6 sm:px-10 lg:h-full lg:w-[44%] lg:pt-0 lg:py-0">
 
           {/* top accent line */}
           <div

@@ -55,7 +55,7 @@ export function ContactBanner() {
         </nav>
 
         {/* ── LEFT: copy ────────────────────────────────────────────────────── */}
-        <div className="relative flex flex-col justify-center px-6 py-8 sm:px-10 lg:h-full lg:w-1/2 lg:py-0">
+        <div className="relative flex flex-col justify-center px-6 pt-16 pb-6 sm:px-10 lg:h-full lg:pb-0 lg:pt-0 lg:w-1/2 lg:py-0">
 
           <div
             className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-lizzu-blue-glow/40 to-transparent"
