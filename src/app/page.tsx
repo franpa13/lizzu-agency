@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { HeroSection } from '@/features/hero/components/hero-section'
-import { StatsStrip } from '@/features/hero/components/stats-strip'
+import { StatsStrip } from '@/features/shared/components/stats-strip'
 import { BrandsSection } from '@/features/hero/components/brands/components/brands-section'
 import { DestacadosSection } from '@/features/hero/components/destacados/components/destacados-section'
 import { WhyUsSection } from '@/features/hero/components/why-us/components/why-us-section'

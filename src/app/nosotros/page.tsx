@@ -1,5 +1,6 @@
 import { AboutBanner }   from '@/features/about/components/about-banner'
 import { AboutContent }  from '@/features/about/components/about-content'
+import { AboutProcess }  from '@/features/about/components/about-process'
 import { AboutReviews }  from '@/features/about/components/about-reviews'
 import type { Metadata } from 'next'
 
@@ -106,6 +107,7 @@ export default function SobreNosotrosPage() {
       />
       <AboutBanner />
       <AboutContent />
+      <AboutProcess />
       <AboutReviews />
     </main>
   )

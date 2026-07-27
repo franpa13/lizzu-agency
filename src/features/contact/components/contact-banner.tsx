@@ -3,6 +3,7 @@ import Link  from 'next/link'
 import { MessageCircle, MapPin, Clock, AtSign, ChevronRight } from 'lucide-react'
 import { BlurFade }    from '@/features/shared/components/ui/blur-fade'
 import { TextAnimate } from '@/features/shared/components/ui/text-animate'
+import { ShowroomBackdrop } from '@/features/shared/components/showroom-backdrop'
 
 const breadcrumb = [
   { label: 'Inicio',   href: '/'          },
@@ -22,17 +23,9 @@ export function ContactBanner() {
       className="relative w-full overflow-hidden"
       aria-label="Contacto Lizzu Multimarcas"
     >
-      <div className="flex flex-col lg:h-96 lg:flex-row bg-lizzu-navy">
+      <div className="flex flex-col lg:h-96 lg:flex-row bg-lizzu-black">
 
-        {/* Dot texture */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
+        <ShowroomBackdrop />
 
         {/* ── Breadcrumb — siempre en la misma posición ─────────────────────── */}
         <nav aria-label="Ubicación de página" className="absolute left-6 top-6 z-10 sm:left-10">

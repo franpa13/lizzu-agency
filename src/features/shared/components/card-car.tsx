@@ -116,14 +116,16 @@ export function CardCar({
         </div>
 
         {/* Price */}
-        <div>
-          <p className="text-xl font-extrabold tracking-tight text-lizzu-blue-glow sm:text-2xl">
-            {price > 0 ? formatPrice(price) : 'Consultar precio'}
-          </p>
-          <p className="mt-0.5 text-[10px] font-medium text-muted-foreground">
-            Financiación disponible
-          </p>
-        </div>
+        {price > 0 && (
+          <div>
+            <p className="text-xl font-extrabold tracking-tight text-lizzu-blue-glow sm:text-2xl">
+              {formatPrice(price)}
+            </p>
+            <p className="mt-0.5 text-[10px] font-medium text-muted-foreground">
+              Financiación disponible
+            </p>
+          </div>
+        )}
 
         {/* CTA */}
         <CarCTAButton brand={brand} model={model} year={year} />

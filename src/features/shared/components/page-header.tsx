@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { ShowroomBackdrop } from '@/features/shared/components/showroom-backdrop'
 
 interface Crumb {
   label: string
@@ -36,20 +37,11 @@ export function PageHeader({
   return (
     <section
       className={cn(
-        'relative overflow-hidden shadow-lg',
-        'bg-lizzu-navy',
+        'relative overflow-hidden bg-lizzu-black shadow-lg',
         className,
       )}
     >
-      {/* Dot texture */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
+      <ShowroomBackdrop />
 
       {/* ── Left car ────────────────────────────────────────────────────── */}
       {leftImage && (

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
-import { ContactBanner } from '@/features/contact/components/contact-banner'
-import { ContactForm }   from '@/features/contact/components/contact-form'
-import { ContactInfo }   from '@/features/contact/components/contact-info'
+import { ContactBanner }  from '@/features/contact/components/contact-banner'
+import { ContactSection } from '@/features/contact/components/contact-section'
 
 export const metadata: Metadata = {
   title: 'Contacto | Lizzu Multimarcas — Agencia de Autos en Jujuy',
@@ -99,8 +98,7 @@ export default function ContactoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ContactBanner />
-      <ContactForm />
-      <ContactInfo />
+      <ContactSection />
     </main>
   )
 }

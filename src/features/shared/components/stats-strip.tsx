@@ -1,6 +1,6 @@
 import { BlurFade } from '@/features/shared/components/ui/blur-fade'
 import { NumberTicker } from '@/features/shared/components/ui/number-ticker'
-import { HERO_STATS } from '../data/stats'
+import { LIZZU_STATS } from '@/features/shared/data/stats'
 
 export function StatsStrip() {
   return (
@@ -19,9 +19,9 @@ export function StatsStrip() {
         style={{ background: 'radial-gradient(ellipse 70% 120% at 50% 50%, #1a42a8 0%, transparent 70%)' }}
       />
 
-      <div className="relative mx-auto  px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-0">
-          {HERO_STATS.map((stat, i) => (
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-3 gap-4 sm:gap-0">
+          {LIZZU_STATS.map((stat, i) => (
             <BlurFade key={stat.label} delay={i * 0.1} inView direction="up">
               <div
                 className={[

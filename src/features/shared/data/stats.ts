@@ -3,8 +3,7 @@ import {
   CarProfileIcon,
   UsersThreeIcon,
   CalendarCheckIcon,
-  StarOutlineIcon,
-} from '../components/stats-icons'
+} from '../icons/stats'
 
 export interface StatItem {
   value: number
@@ -15,7 +14,7 @@ export interface StatItem {
   decimalPlaces?: number
 }
 
-export const HERO_STATS: StatItem[] = [
+export const LIZZU_STATS: StatItem[] = [
   {
     value: 200,
     suffix: '+',
@@ -36,13 +35,5 @@ export const HERO_STATS: StatItem[] = [
     label: 'En el mercado',
     description: 'Trayectoria en Jujuy',
     icon: CalendarCheckIcon,
-  },
-  {
-    value: 4.0,
-    suffix: '★',
-    label: 'Calificación Google',
-    description: 'Valoración de nuestros clientes',
-    icon: StarOutlineIcon,
-    decimalPlaces: 1,
   },
 ]
